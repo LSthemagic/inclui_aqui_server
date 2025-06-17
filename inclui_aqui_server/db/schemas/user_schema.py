@@ -1,11 +1,7 @@
 from pydantic import BaseModel, EmailStr
 
 
-class Message(BaseModel):
-    content: str
-
-
-class UserModel(BaseModel):
+class UserAuth(BaseModel):
     username: str
     email: EmailStr
     password: str
@@ -14,6 +10,8 @@ class UserModel(BaseModel):
 class UserPublic(BaseModel):
     username: str
     email: EmailStr
+    points: int
+    profile_image_url: str | None
 
 
 class AllUsersPublic(BaseModel):
