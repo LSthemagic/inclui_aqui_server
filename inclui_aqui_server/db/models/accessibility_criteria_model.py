@@ -13,7 +13,7 @@ from inclui_aqui_server.db.database import table_registry  # Importa o table_reg
 # Modelo ORM para a tabela 'accessibility_criteria'
 @table_registry.mapped_as_dataclass
 class AccessibilityCriteria:
-    __tablename__ = "accessibility_criteria"
+    __tablename__ = 'accessibility_criteria'
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, init=False

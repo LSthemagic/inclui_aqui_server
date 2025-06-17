@@ -13,14 +13,14 @@ from inclui_aqui_server.db.database import table_registry  # Importa o table_reg
 # Modelo ORM para a tabela 'suggestions'
 @table_registry.mapped_as_dataclass
 class Suggestion:
-    __tablename__ = "suggestions"
+    __tablename__ = 'suggestions'
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, init=False
     )
     establishment_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
-        ForeignKey("establishments.id", ondelete="CASCADE"),
+        ForeignKey('establishments.id', ondelete='CASCADE'),
         nullable=False,
     )
     content: Mapped[str] = mapped_column(TEXT, nullable=False)
@@ -32,7 +32,7 @@ class Suggestion:
     )
 
     # Relação com o modelo Establishment (importação diferida)
-    establishment: Mapped["Establishment"] = relationship(backref="suggestions")
+    establishment: Mapped['Establishment'] = relationship(backref='suggestions')
 
     def __repr__(self):
         return f"<Suggestion(id={self.id}, establishment_id='{self.establishment_id}', is_read={self.is_read})>"

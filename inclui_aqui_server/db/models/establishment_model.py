@@ -13,7 +13,7 @@ from inclui_aqui_server.db.database import table_registry  # Importa o table_reg
 # Modelo ORM para a tabela 'establishments'
 @table_registry.mapped_as_dataclass
 class Establishment:
-    __tablename__ = "establishments"
+    __tablename__ = 'establishments'
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, init=False
@@ -26,7 +26,7 @@ class Establishment:
     google_place_id: Mapped[str | None] = mapped_column(String(255), default=None)
     is_approved: Mapped[bool] = mapped_column(Boolean, default=False)
     owner_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("users.id", ondelete="RESTRICT"), nullable=False
+        UUID(as_uuid=True), ForeignKey('users.id', ondelete='RESTRICT'), nullable=False
     )
     created_at: Mapped[datetime] = mapped_column(default=func.now(), init=False)
     updated_at: Mapped[datetime] = mapped_column(
@@ -38,7 +38,7 @@ class Establishment:
 
     # Relação com o modelo User (um estabelecimento pertence a um usuário)
     # Importação diferida para evitar dependência circular imediata
-    owner: Mapped["User"] = relationship(backref="establishments")
+    owner: Mapped['User'] = relationship(backref='establishments')
 
     def __repr__(self):
         return f"<Establishment(id={self.id}, name='{self.name}', type='{self.type}')>"
