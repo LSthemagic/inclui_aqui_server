@@ -16,6 +16,6 @@ def get_auth_status():
     """
     return ResponseModel(
         message='Auth module is running',
-        status_code=HTTPStatus.OK,
-        data={'version': '0.1.0'},
+        status=HTTPStatus.OK,
+        data={'version': 'v1'},
     )
