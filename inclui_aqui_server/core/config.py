@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     PROJECT_NAME: str
     API_V1_STR: str
-    
+
+
 # Cria uma instância única que será importada em todo o projeto
 settings = Settings()

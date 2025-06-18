@@ -5,7 +5,7 @@ from fastapi import APIRouter
 from inclui_aqui_server.db.schemas import ResponseModel
 
 router = APIRouter(
-    tags=['Authentication'] # Agrupa na documentação /docs
+    tags=['Authentication']  # Agrupa na documentação /docs
 )
 
 
