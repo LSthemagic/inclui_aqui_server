@@ -57,7 +57,7 @@ app = FastAPI(
 app.include_router(api_router_v1)
 
 
-@app.get('/', response_model=response_schema)
+@app.get('/', response_model=GenericResponseModel)
 def health_check():
     return GenericResponseModel(
         message='Root module is running',
