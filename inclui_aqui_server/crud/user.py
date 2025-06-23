@@ -133,4 +133,4 @@ class UserCRUD:
     
 # Cria uma instância única da classe CRUDUser para ser importada em outros lugares.
 # Isso funciona como um singleton, garantindo que você use sempre a mesma instância.
-user = UserCRUD()
+user_crud = UserCRUD()
